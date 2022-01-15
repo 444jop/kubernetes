@@ -6,7 +6,7 @@ spec:
   schedule: '* * * * *'
   jobTemplate:
     spec:
-      activeDeadlineSeconds: 12 # add this line
+      activeDeadlineSeconds: 300 # add this line
       template:
         spec:
           containers:
@@ -18,3 +18,4 @@ spec:
             name: time-limited-job
           restartPolicy: Never
   
+#설정된 시간에 도달하면 잡은 죽는다
