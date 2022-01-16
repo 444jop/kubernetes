@@ -1,0 +1,14 @@
+# Create a multi-container pod multi-container-pod with 2 containers
+#  > first container name nginx with image nginx
+#  > second container name redis with image redis
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: multi-container-pod
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+  - name: redis
+    image: redis
