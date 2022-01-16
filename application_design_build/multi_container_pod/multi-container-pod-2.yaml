@@ -1,0 +1,14 @@
+# Create a pod named multi-container-nrm with a single app container 
+# for each of the following images running inside: nginx + redis + memcached.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: multi-container-nrm
+spec:
+  containers:
+    - image:  nginx
+      name:  nginx
+    - image: redis
+      name: redis
+    - image: memcached
+      name: memcached
