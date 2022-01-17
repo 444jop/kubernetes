@@ -17,3 +17,12 @@ spec:
     - name: db-config
       configMap:
         name: db-config-1
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: db-config-1
+data:
+  my-key: my-value
