@@ -1,0 +1,19 @@
+# Create a new pod nginx-3 with nginx image 
+# and mount the configmap db-config-1 as a volume named db-config and mount path /config
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-3
+spec:
+  containers:
+  - name: nginx-3
+    image: nginx
+    volumeMounts:
+      - name: db-config
+        mountPath: "/config"
+        readOnly: true
+  volumes:
+    - name: db-config
+      configMap:
+        name: db-config-1
