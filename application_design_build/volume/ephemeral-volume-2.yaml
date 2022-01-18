@@ -1,0 +1,23 @@
+# Create a pod as follows:
+# Name: non-persistent-redis
+# container Image:redis
+# Volume with name: cache-control
+# Mount path: /data/redis
+# The pod should launch in the staging namespace and the volume must not be persistent.
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: non-persistent-redis
+  namespace: staging
+spec:
+  containers:
+    - image: redis
+      name: redis
+      volumeMounts:
+      - name: cache-control
+        mountPath: /data/redis
+
+  volumes:
+    - name: cache-control
+      emptyDir: {}
