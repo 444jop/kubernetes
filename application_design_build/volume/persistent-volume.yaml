@@ -1,0 +1,16 @@
+# Create a persistent volume with name app-data, of capacity 200Mi and access mode ReadWriteMany.
+# The type of volume is hostPath and its location is /srv/app-data.
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: app-data
+spec:
+  capacity:
+    storage: 200Mi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  storageClassName: slow
+  hostPath:
+    path: /srv/app-data

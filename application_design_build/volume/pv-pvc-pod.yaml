@@ -1,0 +1,44 @@
+# PV task-pv-volume with storage 10Mi, Access Mode ReadWriteOnce on hostpath /mnt/data.
+# PVC task-pv-claim to use the PV.
+# Create a pod task-pv-pod with nginx image to use the PVC mounted on /usr/share/nginx/html
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: task-pv-pod
+spec:
+  containers:
+    - image: nginx
+      name:  nginx
+      volumeMounts:
+      - name: pv-claim
+        mountPath: /usr/share/nginx/html
+  volumes:
+    - name: pv-claim
+      persistentVolumeClaim:
+        claimName: task-pv-claim
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: task-pv-volume
+spec:
+  capacity:
+    storage: 10Mi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /mnt/data
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: task-pv-claim
+spec:
+  accessModes:
+  - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 10Mi
