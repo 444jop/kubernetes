@@ -1,0 +1,16 @@
+# Create the redis pod with redis image with volume redis-storage as ephemeral storage mounted at /data/redis
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: redis
+spec:
+  containers:
+    - image: redis
+      name: redis
+      volumeMounts:
+        - name:  redis-volume
+          mountPath: /data/redis
+  volumes:
+    - name: redis-volume
+      emptyDir: {}
