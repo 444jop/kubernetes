@@ -1,0 +1,29 @@
+# Create a new deployment for running nginx with the following parameters
+# Name the deployment frontend and configure with 4 replicas
+# Configure the pod with a container image of nginx:1.21
+# Set an environment variable of NGINX PORT=8080 and also expose that port for the container above
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    app: frontend
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.21
+        ports:
+        - containerPort: 8080
+        env:
+        - name: NGINX_PORT
+          value: "8080"
