@@ -1,0 +1,12 @@
+# Create deployment named nginx-deployment with nginx:1.20 image with 3 replicas
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 3
+  template:
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.20
