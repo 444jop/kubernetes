@@ -7,16 +7,16 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend
-  labels:
+  labels: #디플로이먼트의 레이블
     app: frontend
 spec:
   replicas: 4
-  selector:
+  selector: #디플로이먼트가 관리할 파드의 레이블 매칭
     matchLabels:
       app: frontend
-  template:
+  template: 
     metadata:
-      labels:
+      labels: #파드의 레이블
         app: frontend
     spec:
       containers:
