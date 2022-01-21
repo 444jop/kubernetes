@@ -4,8 +4,8 @@ metadata:
   name: blue-green-svc
 spec:
   selector:
-    version: v1
-  type:  NodePort
+    version: v2 #충분한 테스트 이후 v2로 변경하여 트래픽 이동
+  type: ClusterIP
   ports:
   - port:  80
     targetPort: 80
