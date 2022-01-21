@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: origin-deploy
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: front-end
+  template:
+    metadata:
+      labels:
+        app: front-end
+    spec:
+      containers:
+      - name: origin-app
+        image: nginx
