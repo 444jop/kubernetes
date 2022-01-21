@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: blue-green-svc
+spec:
+  selector:
+    version: v1
+  type:  NodePort
+  ports:
+  - port:  80
+    targetPort: 80

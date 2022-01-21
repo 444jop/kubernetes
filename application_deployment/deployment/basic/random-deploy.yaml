@@ -46,3 +46,7 @@ spec:
       - "3600"
     imagePullPolicy: IfNotPresent
   restartPolicy: Always
+
+# k exec dnsutils -it -- nslookup nginx-random
+# Server: 10.96.0.10
+# Address 1: 10.96.0.10
