@@ -1,0 +1,18 @@
+# Check the rollout for nginx-deployment deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: front-end
+  template:
+    metadata:
+      labels:
+        app: front-end
+    spec:
+      containers:
+      - image: nginx:1.20
+        name: nginx-deployment

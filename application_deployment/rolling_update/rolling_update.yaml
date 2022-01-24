@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx
+  name: nginx-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: front-end
+  template:
+    metadata:
+      labels:
+        app: front-end
+    spec:
+      containers:
+      - image: nginx:1.20.2 # Update the image
+        name: nginx-deployment
+
+# 1.20.2버전으로 업데이트
+# kubectl apply -f rolling_update.yaml
+
+# kubectl rollout history deployment nginx-deployment
+
+# kubectl get replicaset
+# 업데이트시 레플리카셋이 변경됬는지 확인
