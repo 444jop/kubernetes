@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: nginx
+    app: front-end
   name: nginx-deployment
 spec:
   replicas: 3
@@ -25,3 +25,6 @@ spec:
 
 # kubectl get replicaset
 # 업데이트시 레플리카셋이 변경됬는지 확인
+# NAME                         DESIRED   CURRENT   READY   AGE
+# nginx-deployment-6f6d7b8b    3         3         3       59s
+# nginx-deployment-b7886ffdb   0         0         0       2m50s
